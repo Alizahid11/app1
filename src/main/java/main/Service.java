@@ -1,9 +1,14 @@
+package main;
+import org.json.simple.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+
 class Service{
 	
 	private final Map<String, Account> accounts;
 
 	public Service(){
-		accounts = new HashMap<>();
+		accounts = new HashMap<String, Account>();
 	}
 
 	public void add(Account account){
@@ -14,5 +19,12 @@ class Service{
 	}
 	public Account retrieve (String accountNumber){
 		return accounts.get(accountNumber);
+	}
+	public  Map<String, Account> getAccounts() {
+		return accounts;
+	}
+
+	public JSONObject getJson() {
+		return new JSONObject(accounts);
 	}
 }
