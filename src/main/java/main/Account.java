@@ -1,23 +1,52 @@
 package main;
-class Account{
-	private String firstName, lastName, accountNumber;
 
-	public Account(String firstName, String lastName, String accountNumber){
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+class Account {
+
+	public Account() {
+		// TODO Auto-generated constructor stub
+	}
+
+	private String firstName;
+	private String lastName;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int accountNumber;
+
+	public Account(String firstName, String lastName, int accountNumber) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.accountNumber = accountNumber;
 	}
 
-
-	public String getFirstName(){
+	public String getFirstName() {
 		return firstName;
 	}
-	public String getLastName(){
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
 		return lastName;
 	}
 
-	public String getAccountNumber(){
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getAccountNumber() {
 		return accountNumber;
+	}
+
+	public void setAccountNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 
 }
